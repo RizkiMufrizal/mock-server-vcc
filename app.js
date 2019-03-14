@@ -131,6 +131,21 @@ router.post("/transaction-notification", function(req, res) {
   }
 });
 
+router.post("/forceStop", function(req, res) {
+  if (req.headers.authorization) {
+    console.log(req.headers);
+    console.log(req.body);
+    res.json({
+      "status": "000",
+      "message": "VCN Berhasil di Non Aktifkan"
+    });
+  } else {
+    return res.json({
+      message: "Not Authentication"
+    });
+  }
+});
+
 app.use("/v1/api", router);
 
 app.listen(port);
